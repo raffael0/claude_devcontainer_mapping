@@ -1,0 +1,17 @@
+{
+    "id": "claude-host",
+    "version": "1.0.0",
+    "name": "Claude Code with host config",
+    "description": "Installs Claude Code and mounts the host's ~/.claude (settings, login, skills, memory) into the container.",
+    "options": {},
+    "mounts": [
+        {
+            "source": "${localEnv:HOME}/.claude",
+            "target": "/mnt/claude-host",
+            "type": "bind"
+        }
+    ],
+    "containerEnv": {
+        "CLAUDE_CONFIG_DIR": "/mnt/claude-host"
+    }
+}
